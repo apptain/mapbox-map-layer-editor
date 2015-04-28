@@ -1,0 +1,101 @@
+<head>
+  <title>Mapbox Leaflet Layer Editor</title>
+</head>
+
+<template name="boardWidgets">
+  <a href="#" class="sidebar-show-btn js-show-sidebar {{#if openWidgets}} hide{{else}}show{{/if}}">
+    <span><i class="fa fa-toggle-settings fa-3x"></i></span>
+    <span class="text">Click to Edit Map Settings</span>
+  </a>
+  <a href="#" class="sidebar-show-btn js-show-sidebar {{#if openWidgets}} hide{{else}}show{{/if}}">
+    <span><i class="fa fa-toggle-settings fa-3x"></i></span>
+    <span class="text">Click to Edit Map Settings</span>
+  </a>
+  <div class="map-widgets {{#if openWidgets}}show{{else}}hide{{/if}} }}">
+    <div>
+      <a href="#" class="sidebar-hide-btn dark-hover js-hide-sidebar" title="Close the sidebar.">
+        <span class="icon"><i class="fa fa-toggle-right fa-lg"></i></span>
+      </a>
+      <h3>Settings</h3>
+      <div class="map-widgets-content-wrapper">
+        <div class="map-widgets-content default fancy-scrollbar short">
+          {{ > stateBorderSettings }}
+          {{ > iconSelect }}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="stateBorderSettings">
+  <h4>State Borders</h4>
+  <div id="state-border-toggle-radio-set">
+    <fieldset class="radiogroup">
+      <legend>Display</legend>
+      <input type="radio" name="borders" id="borders" value="show" checked />
+      <label for="show">Show</label>
+      <input type="radio" name="borders" id="borders" value="hide" />
+      <label for="hide">Hide</label>
+    </fieldset>
+    <fieldset class="radiogroup {{#if session 'showStateBorders'}}show{{else}}hide{{/if}} ">
+      <legend>Color</legend>
+      <select id="borders-color">
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="orange">Orange</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+      </select>
+    </fieldset>
+</div>  
+</template>
+
+<template name="iconSelect">
+  <h4>Add Icon to Map</h4>
+  {{> inputAutocomplete settings=settings id="icon-select" name="icon-select" placeholder="Search Icons" }}
+  <div class="selected-icon">
+    <i class="fa {{selectedFontIconClass}}"></i>
+    {{# if session 'addingFontIcon'}}
+      <p class="directions">Click on the map to add the icon</p>
+      <input id="cancel-icon-to-map" type="button" value="Cancel" /> 
+    {{else}}
+      <input id="icon-to-map" type="button" value="Add to Map" />
+    {{/if}}
+  </div>
+  <div id="size-radio-set">
+    <fieldset class="radiogroup"> 
+      <legend>Icon Size</legend> 
+      <input type="radio" name="size" id="size" value="small" checked/>
+      <label for="small">Small</label>
+
+      <input type="radio" name="size" id="size" value="medium"/>
+      <label for="medium">Medium</label>
+
+      <input type="radio" name="size" id="size" value="large"/>
+      <label for="large">Large</label>
+    </fieldset>
+  </div>  
+  <div id="animation-checkbox-set">
+    <fieldset class="radiogroup">
+      <legend>Animate Icon</legend>
+      <input type="checkbox" name="animation" class="animation-checkbox" id="spin" value="spin" />
+      <label for="spin">Spin</label>
+      <input type="checkbox" name="animation" class="animation-checkbox" id="pulse" value="pulse" />
+      <label for="pulse">Pulse</label>
+    </fieldset>
+  </div>   
+</template>
+
+<template name="iconSelectListItem">
+  {{class}}
+</template>
+
+<template name="mapEditor">
+  {{> boardWidgets}}
+  <div id='map'></div>
+</template>
+
+<template name="iconSelectItem">
+  {{class}}<i class="fa {{class}}"></i>
+</template>
+

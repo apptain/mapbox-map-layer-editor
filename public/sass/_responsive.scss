@@ -1,0 +1,18 @@
+@mixin responsive($point) {
+  @if $point == papa-bear {
+    @media (max-width: 80em) { @content; } // 1200px / 16px
+  }
+  @if $point == mama-bear {
+    @media (max-width: 62em) { @content; } // 1200px / 16px
+  }
+  @if $point == baby-bear {
+    @media (max-width: 43.75em) { @content; } // 1200px / 16px
+  }
+  @if $point == reverso-baby-bear {
+    @media (min-width: 43.75em) { @content; } // 1200px / 16px
+  }
+  @if $point == reverso-mama-bear {
+    @media (min-width: 62em) { @content; } // 1200px / 16px
+  }
+}
+
