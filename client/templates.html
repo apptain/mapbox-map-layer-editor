@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="styles/body.css">
 </head>
 
-<template name="boardWidgets">
+<template name="widgets">
   <a href="#" class="sidebar-show-btn js-show-sidebar {{#if openWidgets}} hide{{else}}show{{/if}}">
     <span><i class="fa fa-toggle-settings fa-3x"></i></span>
     <span class="text">Click to Edit Map Settings</span>
@@ -93,7 +93,7 @@
 </template>
 
 <template name="mapEditor">
-  {{> boardWidgets}}
+  {{> widgets}}
   <div id='map'></div>
 </template>
 
