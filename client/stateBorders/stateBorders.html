@@ -1,0 +1,22 @@
+﻿<template name="stateBorderSettings">
+  <h4>State Borders</h4>
+  <div id="state-border-toggle-radio-set">
+    <fieldset class="radiogroup">
+      <legend>Display</legend>
+      <input type="radio" name="borders" id="borders" value="show" checked />
+      <label for="show">Show</label>
+      <input type="radio" name="borders" id="borders" value="hide" />
+      <label for="hide">Hide</label>
+    </fieldset>
+    <fieldset class="radiogroup {{#if session 'showStateBorders'}}show{{else}}hide{{/if}} ">
+      <legend>Color</legend>
+      <select id="borders-color">
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="orange">Orange</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+      </select>
+    </fieldset>
+  </div>
+</template>

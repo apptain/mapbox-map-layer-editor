@@ -1,0 +1,24 @@
+﻿<template name="widgets">
+  <a href="#" class="sidebar-show-btn js-show-sidebar {{#if openWidgets}} hide{{else}}show{{/if}}">
+    <span><i class="fa fa-toggle-settings fa-3x"></i></span>
+    <span class="text">Click to Edit Map Settings</span>
+  </a>
+  <a href="#" class="sidebar-show-btn js-show-sidebar {{#if openWidgets}} hide{{else}}show{{/if}}">
+    <span><i class="fa fa-toggle-settings fa-3x"></i></span>
+    <span class="text">Click to Edit Map Settings</span>
+  </a>
+  <div class="map-widgets {{#if openWidgets}}show{{else}}hide{{/if}} }}">
+    <div>
+      <a href="#" class="sidebar-hide-btn dark-hover js-hide-sidebar" title="Close the sidebar.">
+        <span class="icon"><i class="fa fa-toggle-right fa-lg"></i></span>
+      </a>
+      <h3>Settings</h3>
+      <div class="map-widgets-content-wrapper">
+        <div class="map-widgets-content default fancy-scrollbar short">
+          {{ > stateBorderSettings }}
+          {{ > iconSelect }}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
